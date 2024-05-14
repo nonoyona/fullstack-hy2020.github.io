@@ -321,10 +321,13 @@ It is recommended to create a separate _npm script_ for linting:
 
 Now the _npm run lint_ command will check every file in the project.
 
-Also the files in the <em>dist</em> directory get checked when the command is run. We do not want this to happen, and we can accomplish this by creating an [.eslintignore](https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file) file in the project's root with the following contents:
+Also the files in the <em>dist</em> directory get checked when the command is run. We do not want this to happen, and we can accomplish this by adding an _ignores_ entry to the _.eslintrc.js_ file with the following contents:
 
-```bash
-dist
+```js
+module.exports = {
+  // ...
+  'ignores': ['dist/**']
+}
 ```
 
 This causes the entire <em>dist</em> directory to not be checked by ESlint.
